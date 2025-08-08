@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>مقارنة بين هاتفين</title>
+  <style>
+    body {
+      font-family: Arial;
+      direction: rtl;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .compare-box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 700px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    select, button {
+      width: 45%;
+      padding: 10px;
+      margin: 10px 2%;
+      font-size: 16px;
+    }
+
+    .comparison-result {
+      margin-top: 20px;
+    }
+
+    .better-result {
+      background: #dff0d8;
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 5px;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body style="background-color: rgb(201, 201, 130);">
+
+  <i><h1>مقارنة بين هاتفين</h1></i>
+  <div class="compare-box">
+    <label>اختر الهاتف الأول:</label><br>
+    <select id="phone1">
+      <option value="">-- choose mobile  --</option>
+      <option value="iphone16e">iPhone 16e</option>
+      <option value="iphone16max">iPhone 16 pro max</option>
+      <option value="iphone16pro">iPhone 16 pro</option>
+      <option value="iphone16plus">iPhone 16 plus</option>
+      <option value="iphone16">iPhone 16</option>
+      <option value="iphone15max">iPhone 15 pro max </option>
+      <option value="iphone15pro">iPhone 15 pro </option>
+      <option value="iphone15plus">iPhone 15 plus </option>
+      <option value="iphone15">iPhone 15 </option>
+     <option value="iphone14max">iPhone 14 pro max</option>      
+       <option value="iphone14plus">iPhone 14 plus</option>
+           <option value="iphone14pro">iPhone 14 pro </option>
+           <option value="iphone14">iPhone 14 </option>
+           <option value="iphoneSE2022">iPhone SE 2022</option>
+           <option value="iphone13max">iPhone 13 pro max</option>
+           <option value="iphone13pro">iPhone 13 pro </option>
+           <option value="iphone13">iPhone 13</option>
+           <option value="iphone13mini">iPhone 13 mini</option>
+            <option value="iphone12pro">iPhone 12 pro</option>
+            <option value="iphone12">iPhone 12 </option>
+            <option value="iphone12max">iPhone 12 pro max </option>
+            <option value="iphone12mini">iPhone 12 mini </option>
+            <option value="iphoneSE2020">iPhone SE 2020 </option>
+      </select><br>
+
+    <label>اختر الهاتف الثاني:</label><br>
+    <select id="phone2">
+      <option value="">-- choose mobile --</option>
+      <option value="iphone16e">iPhone 16e</option>
+      <option value="iphone16max">iPhone 16 pro max</option>
+      <option value="iphone16pro">iPhone 16 pro</option>
+      <option value="iphone16plus">iPhone 16 plus</option>
+      <option value="iphone16">iPhone 16 </option>
+      <option value="iphone15max">iPhone 15 pro max </option>
+      <option value="iphone15pro">iPhone 15 pro </option>
+      <option value="iphone15plus">iPhone 15 plus </option>
+      <option value="iphone15">iPhone 15 </option>
+     <option value="iphone14max">iPhone 14 pro max</option>      
+       <option value="iphone14plus">iPhone 14 plus</option>
+           <option value="iphone14pro">iPhone 14 pro </option>
+           <option value="iphone14">iPhone 14 </option>
+           <option value="iphoneSE2022">iPhone SE 2022</option>
+           <option value="iphone13max">iPhone 13 pro max</option>
+           <option value="iphone13pro">iPhone 13 pro </option>
+           <option value="iphone13">iPhone 13</option>
+           <option value="iphone13mini">iPhone 13 mini</option>
+            <option value="iphone12pro">iPhone 12 pro</option>
+            <option value="iphone12">iPhone 12 </option>
+            <option value="iphone12max">iPhone 12 pro max </option>
+            <option value="iphone12mini">iPhone 12 mini </option>
+            <option value="iphoneSE2020">iPhone SE 2020 </option>      
+    </select><br>
+
+    <button onclick="comparePhones()">قارن الآن</button>
+
+    <div class="comparison-result" id="result"></div>
+    <div class="better-result" id="better"></div>
+  </div>
+
+  <script>
+    const phones = {
+      iphone16e: {
+        name: "iPhone 16e",
+        screen: "6.1 بوصة",
+        battery: "3961 مللي أمبير",
+        camera: " الخلفية: 48 م.ب./الامامية :12م.ب",
+        processor: "APPLE 18 pro"
+      },
+      iphone16max: {
+        name: "iPhone 16 pro max",
+        screen: "6.9 بوصة",
+        battery: "4685 مللي أمبير",
+        camera: "الكاميرا الخلفية : 48+12+48 م.ب. /الكاميرا الامامية :12 م.ب",
+        processor: "Apple 18 pro"
+      },
+      iphone16pro:{
+       name:"iPhone 16 pro",
+       screen:"6.3 بوصة",
+       battery:"3528 مللى امبير",
+       camera:"الخلفية: 48+12+48 م.ب. /الامامية : 12 م.ب.",
+       processor:"Apple 18 pro"
+      },
+      iphone16plus:{
+       name:"iPhone 16 plus",
+       screen:"6.7 بوصة",
+       battery:"4674 مللى امبير",
+       camera:"الخلفية: 12+48 م.ب. /الامامية : 12 م.ب.",
+       processor:"Apple 18 pro"
+      }, 
+      iphone16:{
+       name:"iPhone 16 ",
+       screen:"6.1 بوصة",
+       battery:"3561 مللى امبير",
+       camera:"الخلفية: 12+48 م.ب. /الامامية : 12 م.ب.",
+       processor:"Apple 18 pro"
+      },     
+      iphone15max:{
+       name:"iPhone 15 pro max",
+       screen:"6.7 بوصة",
+       battery:"4422 مللى امبير",
+       camera:"الخلفية: 12+12+48 م.ب. /الامامية : 12 م.ب.",
+       processor:"Apple 17 pro"
+      },  
+      iphone15pro:{
+       name:"iPhone 15 pro ",
+       screen:"6.1 بوصة",
+       battery:"3274 مللى امبير",
+       camera:"الخلفية: 12+12+48 م.ب. /الامامية : 12 م.ب.",
+       processor:"Apple 17 pro"
+      },       
+      iphone15plus:{
+       name:"iPhone 15 plus ",
+       screen:"6.7 بوصة",
+       battery:"4383 مللى امبير",
+       camera:"الخلفية: 12+48 م.ب. /الامامية : 12 م.ب.",
+       processor:"Apple 16 Bionic",
+      },
+       iphone15:{
+       name:"iPhone 15 ",
+       screen:"6.1 بوصة",
+       battery:"3349 مللى امبير",
+       camera:"الخلفية: 12+48 م.ب. /الامامية : 12 م.ب.",
+       processor:"Apple 16 Bionic",
+      },
+      iphone14max:{
+       name:"iPhone 14 pro max ",
+       screen:"6.1 بوصة",
+       battery:"4323 مللى امبير",
+       camera:"الخلفية: 12+48+12 م.ب. /الامامية : 12 م.ب.",
+       processor:"Apple 16 Bionic",
+      },      
+      iphone14pro:{
+       name:"iPhone 14 pro",
+       screen:"6.1 بوصة",
+       battery:"3200 مللى امبير",
+       camera:"الخلفية: 12+48+12 م.ب. /الامامية : 12 م.ب.",
+       processor:"Apple 16 Bionic",
+      },      
+      iphone14plus:{
+       name:"iPhone 14 plus",
+       screen:"6.7 بوصة",
+       battery:"4323 مللى امبير",
+       camera:"الخلفية: 12+12 م.ب. /الامامية : 12 م.ب.",
+       processor:"Apple 15 Bionic",
+      },      
+      iphone14:{
+       name:"iPhone 14 ",
+       screen:"6.7 بوصة",
+       battery:"3279 مللى امبير",
+       camera:"الخلفية: 12+12 م.ب. /الامامية : 12 م.ب.",
+       processor:"Apple 15 Bionic",
+      },      
+      iphoneSE2022:{
+       name:"iPhone SE 2022",
+       screen:"4.7 بوصة",
+       battery:"2406 مللى امبير",
+       camera:"الخلفية: 12 م.ب. /الامامية : 7 م.ب.",
+       processor:"Apple 15 Bionic",
+      },      
+      iphone13max:{
+       name:"iPhone 13 pro max",
+       screen:"6.7 بوصة",
+       battery:"4373 مللى امبير",
+       camera:"الخلفية: 12+12+12 م.ب. /الامامية : 12 م.ب.",
+       processor:"Apple 15 Bionic",
+      }, 
+      iphone13pro:{
+       name:"iPhone 13 pro ",
+       screen:"6.1 بوصة",
+       battery:"3125 مللى امبير",
+       camera:"الخلفية: 12+12+12 م.ب. /الامامية : 12 م.ب.",
+       processor:"Apple 15 Bionic",
+      },     
+      iphone13:{
+       name:"iPhone 13 ",
+       screen:"6.1 بوصة",
+       battery:"3240 مللى امبير",
+       camera:"الخلفية: 12+12+12 م.ب. /الامامية : 12 م.ب.",
+       processor:"Apple 15 Bionic",
+      },     
+      iphone13mini:{
+       name:"iPhone 13 mini",
+       screen:"5.4 بوصة",
+       battery:"2438 مللى امبير",
+       camera:"الخلفية: 12+12+12 م.ب. /الامامية : 12 م.ب.",
+       processor:"Apple 15 Bionic",
+      },     
+      iphone12max:{
+       name:"iPhone 12 pro max",
+       screen:"6.7 بوصة",
+       battery:"3687 مللى امبير",
+       camera:"الخلفية: 12+12+12 م.ب. /الامامية : 12 م.ب.",
+       processor:"Apple 14 Bionic",
+      },     
+      iphone12pro:{
+       name:"iPhone 12 pro",
+       screen:"6.1 بوصة",
+       battery:"2815 مللى امبير",
+       camera:"الخلفية: 12+12+12 م.ب. /الامامية : 12 م.ب.",
+       processor:"Apple 14 Bionic",
+      },     
+      
+       iphone12:{
+       name:"iPhone 12 ",
+       screen:"6.1 بوصة",
+       battery:"2815 مللى امبير",
+       camera:"الخلفية: 12+12 م.ب. /الامامية : 12 م.ب.",
+       processor:"Apple 14 Bionic",
+       },
+       iphone12mini:{
+       name:"iPhone 12 mini",
+       screen:"5.4 بوصة",
+       battery:"2227 مللى امبير",
+       camera:"الخلفية: 12+12 م.ب. /الامامية : 12 م.ب.",
+       processor:"Apple 14 Bionic",
+       },
+       iphoneSE2020:{
+       name:"iPhone SE 2020",
+       screen:"4.7 بوصة",
+       battery:"1821 مللى امبير",
+       camera:"الخلفية: 12 م.ب. /الامامية : 7 م.ب.",
+       processor:"Apple 13 Bionic",
+       },
+      };
+
+
+    
+
+    function comparePhones() {
+      const phone1 = document.getElementById("phone1").value;
+      const phone2 = document.getElementById("phone2").value;
+
+      const resultDiv = document.getElementById("result");
+      const betterDiv = document.getElementById("better");
+
+      if (!phone1 || !phone2 || phone1 === phone2) {
+        resultDiv.innerHTML = "<p style='color:red'>يرجى اختيار هاتفين مختلفين للمقارنة.</p>";
+        betterDiv.innerHTML = "";
+        return;
+      }
+
+      const p1 = phones[phone1];
+      const p2 = phones[phone2];
+
+      resultDiv.innerHTML = `
+        <h3>مواصفات ${p1.name}:</h3>
+        <ul>
+          <li>الشاشة: ${p1.screen}</li>
+          <li>البطارية: ${p1.battery}</li>
+          <li>الكاميرا: ${p1.camera}</li>
+          <li>المعالج: ${p1.processor}</li>
+        </ul>
+        <h3>مواصفات ${p2.name}:</h3>
+        <ul>
+          <li>الشاشة: ${p2.screen}</li>
+          <li>البطارية: ${p2.battery}</li>
+          <li>الكاميرا: ${p2.camera}</li>
+          <li>المعالج: ${p2.processor}</li>
+        </ul>
+      `;
+
+       let betterPhone = p1.battery > p2.battery ? p1.name : p2.name;
+      betterDiv.innerText = `الهاتف الأفضل حسب المواصفات هو: ${betterPhone}`;
+    }
+  </script>
+
+</body>
+</html>
