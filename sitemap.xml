@@ -9,7 +9,7 @@
   </url>
 
   <url>
-    <loc>https://mrspro400.github.io/iphone/about.html</loc>
+    <loc>https://mrspro400.github.io/iphone/about.html</loc>  
     <lastmod>2025-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -21,10 +21,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-<url>
+
+  <url>
     <loc>https://mrspro400.github.io/iphone/compare.html</loc>
     <lastmod>2025-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url> 
-  </urlset>
+  </url>
+
+</urlset>
